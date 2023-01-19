@@ -1,0 +1,2 @@
+.header{display: flex;align-items: center;background-color: #000;height: 80px;}
+.header .logo{max-width: 70px;width: 100%;}

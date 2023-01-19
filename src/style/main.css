@@ -1,0 +1,30 @@
+.mainSlideInner{transition: all .3s ease-out; transform-origin: 50% 50%;}
+
+
+
+
+.mainVisual{position:relative;height: calc(100vh - 80px );display: flex;align-items: center;background-image: url('https://noona-netflix.netlify.app/big-banner.jpg');background-size: cover;background-repeat: no-repeat;background-position: center;}
+.mainVisual::before{content:"";z-index:0;position: absolute;left: 0;top: 0;width: 100%;height: 100%;background-image: linear-gradient(to left, rgba(0,0,0,0.3), rgba(0,0,0,1))}
+.mainVisual--textBox{position: relative;z-index: 0;}
+.mainVisual__title{font-size: 3.125rem;color: #fff;font-family: 'Hahmlet', serif;}
+.mainVisual__txt{font-size: 0.9375rem;color: #fff;font-family: 'Hahmlet', serif;line-height:1.8;font-weight:400;max-width: 600px;margin-top: 20px;}
+
+.mainMovieList + .mainMovieList{margin: 50px 0 0 0;}
+.mainMovieTitle{color:#fff;font-weight:500;font-family: 'Hahmlet', serif;font-size: 1.75rem;margin: 0 0 20px 0;}
+.mainSlideArea{}
+.mainSlideArea .swiper-slide{height: 200px;background-size: cover;background-position: center;background-repeat: no-repeat;}
+.mainSlideInner{box-sizing: border-box;padding: 20px;position: relative;height: 100%;opacity: 0;}
+.mainSlideInner::before{content:"";z-index:0;position: absolute;left: 0;top: 0;width: 100%;height: 100%;background-color: rgba(0,0,0,0.7)}
+.mainSLideView{z-index: 1;position: relative;height: 100%;}
+
+.mainSlideInner:hover{opacity: 1;}
+
+.mainSlide__title{font-family: 'Hahmlet', serif;font-size: 20px;color: #ffff;font-weight: 600;display: inline-block;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+
+.mainSlide--genresBox{display: flex;align-items: center;flex-wrap: wrap;gap: 3px 7px;margin: 15px 0 0 0;}
+.mainSlide__genres{text-align:center;font-weight:600;padding:3px 7px;font-size:0.675rem;background-color: #dc143c;color: #fff;border-radius: 6px;}
+
+.mainSlide--EtcBox{display: flex;align-items: center;gap:5px 10px;position: absolute;bottom: 0;left: 0px;}
+.mainSlide__EtcItem{font-size: 1rem;color: #fff;font-weight: 600;}
+.mainSlide__EtcItem svg{margin: 0 4px 0 0;}
+.mainSlide__underTxt{font-weight: bold;font-style:italic; color:#dc143c;}
