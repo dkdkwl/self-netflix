@@ -1,4 +1,5 @@
-import { selector } from "recoil";
+import { selector, selectorFamily } from "recoil";
+import { currentId } from "./atom";
 import axios from "axios";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
@@ -43,3 +44,19 @@ export const mainVisualTop = selector({
         }
     }
 })
+
+export const moviesParms = selector({
+    key : 'moviesParms',
+    default : {},
+    get : async({get})=>{
+        let currentUrl = get(currentId);
+        const subViewApi = await api.get(`/movie/${currentUrl}?api_key=${API_KEY}&language=ko-KR`)
+        console.log("currentUrl",subViewApi)        
+        try {
+            console.log("currentUrl",subViewApi)
+            return {subViewApi}
+        } catch (error) {
+            return console.log("파람스 확인 오류")
+        }
+    }
+});

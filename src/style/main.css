@@ -47,7 +47,7 @@
 .subVisual__EtcTitle::before{content:"";position:absolute;width: 1px;height: 14px;left: -10px;top: 3px;background-color: #aaa;}
 
 /* subPage -- viewPage */
-.viewContent{display: flex;}
+.viewContent{display: flex;padding-top: 100px;}
 .contentImgBox{max-width: 540px;width: 100%;}
 .contentTextBox{max-width: calc(100% - 540px);width: 100%;padding: 0 0 0 30px;}
 .contentInnerBox{padding: 30px 0 30px 0;border-bottom: 1px solid #fff;}
@@ -71,3 +71,7 @@
 .contentInfo__item{display: flex;}
 .contentInfo__item b{background-color: #dc143c;padding: 3px 15px;border-radius: 12px;color: #fff;font-size: 0.875rem;font-weight: 300;max-width: 110px;width: 100%;text-align: center;margin: 0 10px 0 0;}
 .contentInfo__item span{}
+.reviewArea{display: flex;gap: 10px 30px;margin: 100px 0 0 0;justify-content: center;}
+.reviewButton{color: #333;font-size: 14px;font-weight: 300;font-family: 'Montserrat', sans-serif;padding: 20px 40px;color: #747691;text-transform: uppercase;letter-spacing: 2px;line-height: 1;border: 2px solid #ecedff;background-color: #fff;border: none;}
+.reviewButton.btnReview{}
+.reviewButton.btnRelated{background-color: #fe4536;color: #fff;}
