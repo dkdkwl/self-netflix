@@ -1,6 +1,6 @@
 {
-  "name": "self-netflix",
-  "homepage": "https://dkdkwl.github.io/public-netflix",
+  "name": "public-netflix",
+  "homepage": "./.",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

@@ -1,7 +1,8 @@
 import './App.css';
 import { Routes,Route } from 'react-router-dom';
-import Main from './component/Main';
+import Main from './page/Main';
 import Header from './component/Header';
+import Movies from './page/Movies';
 
 function App() {
   return (
@@ -9,8 +10,8 @@ function App() {
       <Header></Header>
       <Routes>
         <Route path='/' element={<Main/>}></Route>
-        {/* <Route path='/view' element={}></Route>
-        <Route path='/vide:id' element={}></Route> */}
+        <Route path='/movies' element={<Movies/>}></Route>
+        {/* <Route path='/vide:id' element={}></Route> */}
       </Routes>
     </div>
   );

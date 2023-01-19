@@ -1,5 +1,9 @@
 import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Scrollbar, A11y } from 'swiper';
+import "swiper/css/navigation";
+// import "swiper/css/pagination";
+import "swiper/css/scrollbar";
 import 'swiper/css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser,faFire } from '@fortawesome/free-solid-svg-icons'
@@ -12,9 +16,12 @@ const MainSlide = ({movies,genresType}) => {
 
   return (
     <Swiper className='mainSlideArea'
-      slidesPerView={4}
-      onSlideChange={() => console.log('slide change')}
-      onSwiper={(swiper) => console.log(swiper)}>
+        modules={[Navigation, Scrollbar, A11y]}
+        slidesPerView={4}
+        navigation
+        scrollbar={{ draggable: true }}
+        onSlideChange={() => console.log('slide change')}
+        onSwiper={(swiper) => console.log(swiper)}>
         {popularList.map((item,i) => {
             return (
                 <SwiperSlide style={{ backgroundImage : `url(`+url + item.backdrop_path+`)` }} key={i}>
@@ -33,7 +40,6 @@ const MainSlide = ({movies,genresType}) => {
                                 item.adult === false ? <li className='mainSlide__underTxt'>Under 18</li> : "" 
                                 }
                             </ul>
-
                         </div>
                     </div>
                 </SwiperSlide>

@@ -6,6 +6,7 @@ const api = axios.create({
 	baseURL:'https://api.themoviedb.org/3/'
 });
 
+// 메인슬라이드 인기,탑랭크,개봉예정작,장르 가져오기
 export const getMoviesAPi = selector({
     key : "moviesApi",
     default : "",
@@ -21,11 +22,12 @@ export const getMoviesAPi = selector({
         } catch (error) {
             // ex.request 서버에 성공적으로 요청했을 때 설정됨
             // ex.response 서버에 성공적으로 응답을 받았을 때 설정됨
-            return console.log("에러입니다.")
+            return console.log("메인슬라이드 에러입니다.")
         }
     }
 })
 
+// 메인비주얼 랜덤으로 개봉예정작 나오게하기
 export const mainVisualTop = selector({
     key : "mainVisualTop",
     default : [],
@@ -37,7 +39,7 @@ export const mainVisualTop = selector({
             let mainVisualPick = mainVisualData[sPick];
             return {mainVisualPick}
         } catch (error) {
-            return console.log("에러입니다.")
+            return console.log("메인비주얼 에러입니다.")
         }
     }
 })

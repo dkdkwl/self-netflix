@@ -1,6 +1,6 @@
 import React from 'react'
-import MainVisual from './MainVisual'
-import MainMovieList from './MainMovieList';
+import MainVisual from '../component/MainVisual'
+import MainMovieList from '../component/MainMovieList';
 import '../style/main.css';
 
 const Main = () => {

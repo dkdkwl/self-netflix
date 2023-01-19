@@ -1,9 +1,7 @@
 .mainSlideInner{transition: all .3s ease-out; transform-origin: 50% 50%;}
 
 
-
-
-.mainVisual{position:relative;height: calc(100vh - 80px );display: flex;align-items: center;background-image: url('https://noona-netflix.netlify.app/big-banner.jpg');background-size: cover;background-repeat: no-repeat;background-position: center;}
+.mainVisual{position:relative;height: calc(100vh - 80px );display: flex;align-items: center;background-image: url('https://noona-netflix.netlify.app/big-banner.jpg');background-size: cover;background-repeat: no-repeat;background-position: center;max-height: 550px;margin: 0 0 70px 0;}
 .mainVisual::before{content:"";z-index:0;position: absolute;left: 0;top: 0;width: 100%;height: 100%;background-image: linear-gradient(to left, rgba(0,0,0,0.3), rgba(0,0,0,1))}
 .mainVisual--textBox{position: relative;z-index: 0;}
 .mainVisual__title{font-size: 3.125rem;color: #fff;font-family: 'Hahmlet', serif;}
@@ -28,3 +26,48 @@
 .mainSlide__EtcItem{font-size: 1rem;color: #fff;font-weight: 600;}
 .mainSlide__EtcItem svg{margin: 0 4px 0 0;}
 .mainSlide__underTxt{font-weight: bold;font-style:italic; color:#dc143c;}
+
+
+/* main - swiper */
+.mainMovieList .swiper-scrollbar-drag{background-color: #dc143c;opacity: 0.9;}
+.mainMovieList .swiper-horizontal>.swiper-scrollbar,
+.mainMovieList .swiper-scrollbar.swiper-scrollbar-horizontal{bottom: 0;}
+.mainMovieList .swiper-button-next:after,
+.mainMovieList .swiper-button-prev:after{color: #fff;}
+
+
+/* subPage */
+.subVisual{height: 400px;background-size: cover;background-repeat: no-repeat;background-position: center;display: flex;align-items: center;justify-content: center;}
+.subVisual--Inner{display: flex;flex-direction: column;align-items: center;}
+.subVisual__title{font-size: 3.5rem;color: #fff;font-family: "Noto Sans",sans-serif;font-weight: 300;letter-spacing: 0.1em;}
+.subVisual--EtcBox{max-width: max-content;display:flex;align-items: center;padding: 15px 30px;background-color: #fff;justify-content: center;gap: 10px 20px;margin: 20px 0 0 0;}
+.subVisual__EtcLink,.subVisual__EtcTitle{font-family: 'Montserrat', sans-serif;font-weight: 300;color: #999;}
+.subVisual__EtcLink{}
+.subVisual__EtcTitle{color: #999;position:relative;}
+.subVisual__EtcTitle::before{content:"";position:absolute;width: 1px;height: 14px;left: -10px;top: 3px;background-color: #aaa;}
+
+/* subPage -- viewPage */
+.viewContent{display: flex;}
+.contentImgBox{max-width: 540px;width: 100%;}
+.contentTextBox{max-width: calc(100% - 540px);width: 100%;padding: 0 0 0 30px;}
+.contentInnerBox{padding: 30px 0 30px 0;border-bottom: 1px solid #fff;}
+
+.contentText__Title{font-size: 3rem;color: #fff;font-weight: 400;font-family: 'Montserrat', sans-serif;margin: 0 0 15px 0;}
+.contentText__Txt{font-size: 1.25rem;color: #fff;font-weight: 400;font-family: 'Montserrat', sans-serif;margin: 0 0 15px 0;}
+
+.content--GenresList{display: flex;align-items: center;flex-wrap: wrap;gap: 6px 10px;margin: 20px 0 0 0;}
+.content--GenresItems{background-color: #dc143c;padding: 5px 10px;border-radius: 15px;color: #fff;font-size: 1rem;font-weight: 300;}
+
+.content--EtcBox{display: flex;align-items: center;gap:5px 10px;}
+.content__EtcItem{font-size: 1rem;color: #fff;font-weight: 600;}
+.content__EtcItem svg{margin: 0 4px 0 0;}
+.content__underTxt{font-weight: bold;font-style:italic; color:#dc143c;font-size: 1.25rem;}
+.content__overViewTxt{font-size: 0.9375rem;color: #fff;font-family: 'Montserrat', sans-serif;line-height: 1.6;letter-spacing: -0.03em;}
+
+.content__watchMovie{color: #dc143c;font-family: 'Montserrat', sans-serif;}
+.content__watchMovie svg{margin: 0 10px 0 0;}
+
+.contentInfoList{gap: 6px;display: flex;flex-direction: column;}
+.contentInfo__item{display: flex;}
+.contentInfo__item b{background-color: #dc143c;padding: 3px 15px;border-radius: 12px;color: #fff;font-size: 0.875rem;font-weight: 300;max-width: 110px;width: 100%;text-align: center;margin: 0 10px 0 0;}
+.contentInfo__item span{}
