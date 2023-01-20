@@ -20,19 +20,17 @@ const MainSlide = ({movies,genresType}) => {
         modules={[Navigation, Scrollbar, A11y]}
         slidesPerView={4}
         navigation
-        scrollbar={{ draggable: true }}
-        onSlideChange={() => console.log('slide change')}
-        onSwiper={(swiper) => console.log(swiper)}>
+        scrollbar={{ draggable: true }}>
         {popularList.map((item,i) => {
             return (
-                <SwiperSlide style={{ backgroundImage : `url(`+url + item.backdrop_path+`)` }} key={i}>
+                <SwiperSlide style={ item?.backdrop_path ? {backgroundImage : `url(`+url + item.backdrop_path+`)`} : null } key={i}>
                     <div className='mainSlideInner'>
-                        <Link to={'movies/' + item.id }>
+                        <Link to={'detail/' + item.id }>
                             <div className='mainSLideView'>
                                 <strong className='mainSlide__title'>{item.title}</strong>
                                 <div className='mainSlide--genresBox'>
                                     {item.genre_ids.map((id,i)=>{
-                                        return <div className='mainSlide__genres' key={i}>{genresList.find((item) => item.id === id).name}</div>
+                                        return <div className='mainSlide__genres' key={i}>{id}{genresList.find((item) => item.id === id).name}</div>
                                     })}
                                 </div>
                                 <ul className='mainSlide--EtcBox'>

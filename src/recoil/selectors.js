@@ -1,4 +1,4 @@
-import { selector, selectorFamily } from "recoil";
+import { selector } from "recoil";
 import { currentId } from "./atom";
 import axios from "axios";
 
@@ -17,6 +17,8 @@ export const getMoviesAPi = selector({
         const upComingApi = await api.get(`/movie/upcoming?api_key=${API_KEY}&language=ko-KR&page=1`)
         const genreApi = await api.get(`/genre/movie/list?api_key=${API_KEY}&language=ko-KR`)
         let [popularMovies,topRatedMovies,upComingMovies,genreMovies] = await Promise.all([popularApi.data.results,topRatedApi.data.results,upComingApi.data.results,genreApi.data])
+        console.log("test")
+
         try {
             // console.log(popularMovies,topRatedMovies,upComingMovies,genreMovies)
             return {popularMovies,topRatedMovies,upComingMovies,genreMovies}
@@ -51,10 +53,10 @@ export const moviesParms = selector({
     get : async({get})=>{
         let currentUrl = get(currentId);
         const subViewApi = await api.get(`/movie/${currentUrl}?api_key=${API_KEY}&language=ko-KR`)
-        console.log("currentUrl",subViewApi)        
+        const genreApi = await api.get(`/genre/movie/list?api_key=${API_KEY}&language=ko-KR`)
+        let [subViewData,viewGenreData] = await Promise.all([subViewApi.data,genreApi.data])
         try {
-            console.log("currentUrl",subViewApi)
-            return {subViewApi}
+            return {subViewData,viewGenreData}
         } catch (error) {
             return console.log("파람스 확인 오류")
         }

@@ -3,22 +3,29 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser,faFire,faFilm } from '@fortawesome/free-solid-svg-icons'
 
 
-const SubViewInfo = () => {
+const SubViewInfo = ({moviesContent,genresList}) => {
   return (
     <div className='viewContent'>
         <div className="contentImgBox">
-            <img src="https://image.tmdb.org/t/p/original///kuf6dutpsT0vSVehic3EZIqkOBt.jpg" alt="" />
+            <img src={`https://image.tmdb.org/t/p/original/${moviesContent?.backdrop_path}`} alt="" />
         </div>
         <div className="contentTextBox">
             <div className='contentInnerBox'>
-                <h2 className='contentText__Title'>PUSS IN BOOTS: THE LAST WISH</h2>
-                <div className="contentText__Txt">Say hola to his little friends.</div>
+                <h2 className='contentText__Title'>{moviesContent?.title}</h2>
+                <div className="contentText__Txt">{moviesContent?.tagline}</div>
                 <ul className='content--EtcBox'>
-                    <li className='content__EtcItem'><FontAwesomeIcon icon={faUser} /> 111</li> 
-                    <li className='content__EtcItem'><FontAwesomeIcon icon={faFire} /> 222</li>
-                <li className='content__underTxt'>Under 18</li>
+                    <li className='content__EtcItem'><FontAwesomeIcon icon={faUser} /> {moviesContent?.vote_average}</li>
+                    <li className='content__EtcItem'><FontAwesomeIcon icon={faFire} /> {moviesContent?.popularity}</li>
+                    {
+                        moviesContent?.adult === false ? "" : <li className='content__underTxt'>Under 18</li>
+                    }
                 </ul>
                 <ul className='content--GenresList'>
+                    {moviesContent?.genres.map((id,i)=>{
+                        return <div className='content--GenresItems' key={i}>{
+                            genresList?.find((moviesContent) => moviesContent.id === id).name
+                        }</div>
+                    })}
                     <li className='content--GenresItems'>Animation</li>
                     <li className='content--GenresItems'>Action</li>
                     <li className='content--GenresItems'>Adventure</li>

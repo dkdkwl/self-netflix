@@ -6,7 +6,8 @@ const MainVisual = () => {
   const mainVisualOnePick = mainVisualData.contents.mainVisualPick;
   console.log("mainVisualData",mainVisualOnePick);
   return (
-    <div className='mainVisual' style={{backgroundImage : `url(https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces/${mainVisualOnePick?.backdrop_path})`}}>
+    <div className='mainVisual'
+    style={ mainVisualOnePick?.backdrop_path ? {backgroundImage : `url(https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces/${mainVisualOnePick?.backdrop_path})`} : null }>
         <div className='mainVisual--textBox w1400'>
             <h2 className='mainVisual__title'>{mainVisualOnePick?.title}</h2>
             <p className='mainVisual__txt'>{mainVisualOnePick?.overview}</p>
