@@ -5,7 +5,6 @@ import MainSlide from './MainSlide';
 
 const MovieSlide = () => {
     const movieData = useRecoilValueLoadable(getMoviesAPi);
-    console.log("영화 api넘어옴?",movieData.contents)
   return (
     <div className='w1400'>
       <div className='mainMovieList'>

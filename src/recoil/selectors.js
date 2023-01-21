@@ -17,8 +17,6 @@ export const getMoviesAPi = selector({
         const upComingApi = await api.get(`/movie/upcoming?api_key=${API_KEY}&language=ko-KR&page=1`)
         const genreApi = await api.get(`/genre/movie/list?api_key=${API_KEY}&language=ko-KR`)
         let [popularMovies,topRatedMovies,upComingMovies,genreMovies] = await Promise.all([popularApi.data.results,topRatedApi.data.results,upComingApi.data.results,genreApi.data])
-        console.log("test")
-
         try {
             // console.log(popularMovies,topRatedMovies,upComingMovies,genreMovies)
             return {popularMovies,topRatedMovies,upComingMovies,genreMovies}
@@ -47,11 +45,12 @@ export const mainVisualTop = selector({
     }
 })
 
+//현재 보고 있는 페이지 정보 가져오기
 export const moviesParms = selector({
     key : 'moviesParms',
     default : {},
     get : async({get})=>{
-        let currentUrl = get(currentId);
+        const currentUrl = get(currentId);
         const subViewApi = await api.get(`/movie/${currentUrl}?api_key=${API_KEY}&language=ko-KR`)
         const genreApi = await api.get(`/genre/movie/list?api_key=${API_KEY}&language=ko-KR`)
         let [subViewData,viewGenreData] = await Promise.all([subViewApi.data,genreApi.data])
@@ -62,3 +61,20 @@ export const moviesParms = selector({
         }
     }
 });
+
+//페이지 유튜브 가져오기
+export const getYoutubeApi = selector({
+    key : 'getYoutubeApi',
+    default : {},
+    get : async({get})=>{
+        const currentUrl = get(currentId);
+        let youtubeApi = await api.get(`/movie/${currentUrl}/videos?api_key=${API_KEY}&language=en-US`)
+        try {
+            let youtubeData = await youtubeApi.data;
+            return {youtubeData}
+        } catch (error) {
+            return console.log("파람스 확인 오류")
+        }
+    }
+});
+

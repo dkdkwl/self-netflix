@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser,faFire,faFilm } from '@fortawesome/free-solid-svg-icons'
+import DetailYoutube from './DetailYoutube'
 
 const SubViewInfo = ({moviesContent,genresList}) => {
     console.log("넘어온 moviesContent",moviesContent)
@@ -46,6 +46,7 @@ const SubViewInfo = ({moviesContent,genresList}) => {
             </div>
             <div className="contentInnerBox">
                 <p className='content__watchMovie'><FontAwesomeIcon icon={faFilm} />Watch Trailer</p>
+                <DetailYoutube/>
             </div>
         </div>
     </div>

@@ -11,8 +11,8 @@ const SubViewContent = () => {
   const [renderView,setRenderView] = useRecoilState(currentId);
   useEffect(()=>{
     const obj = Object.values({id})
-    setRenderView(obj)
-  },[]);
+    setRenderView(obj[0])
+  },[renderView]);
 
   const detailContent = useRecoilValueLoadable(moviesParms);
   const detailData = detailContent.contents.subViewData;
