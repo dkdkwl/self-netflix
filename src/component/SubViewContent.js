@@ -13,9 +13,10 @@ const SubViewContent = () => {
     const obj = Object.values({id})
     setRenderView(obj)
   },[]);
+
   const detailContent = useRecoilValueLoadable(moviesParms);
   const detailData = detailContent.contents.subViewData;
-  const detailGenreList = detailContent.contents.genres;
+  const detailGenreList = detailContent.contents.viewGenreData;
 
   return (
     <div className='w1400'>

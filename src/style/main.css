@@ -52,8 +52,8 @@
 .contentTextBox{max-width: calc(100% - 540px);width: 100%;padding: 0 0 0 30px;}
 .contentInnerBox{padding: 30px 0 30px 0;border-bottom: 1px solid #fff;}
 
-.contentText__Title{font-size: 3rem;color: #fff;font-weight: 400;font-family: 'Montserrat', sans-serif;margin: 0 0 15px 0;}
-.contentText__Txt{font-size: 1.25rem;color: #fff;font-weight: 400;font-family: 'Montserrat', sans-serif;margin: 0 0 15px 0;}
+.contentText__Title{font-size: 3rem;color: #fff;font-weight: 400;font-family: 'Montserrat', sans-serif;margin: 0 0 15px 0;    font-family: 'Hahmlet', serif;}
+.contentText__Txt{font-size: 1.25rem;color: #fff;font-weight: 400;font-family: 'Montserrat', sans-serif;margin: 0 0 15px 0;    font-family: 'Hahmlet', serif;}
 
 .content--GenresList{display: flex;align-items: center;flex-wrap: wrap;gap: 6px 10px;margin: 20px 0 0 0;}
 .content--GenresItems{background-color: #dc143c;padding: 5px 10px;border-radius: 15px;color: #fff;font-size: 1rem;font-weight: 300;}
