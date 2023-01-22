@@ -1,16 +1,22 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser,faFire,faFilm } from '@fortawesome/free-solid-svg-icons'
-import DetailYoutube from './DetailYoutube'
+import SubViewYoutube from './SubViewYoutube'
+import { useState } from 'react';
 
 const SubViewInfo = ({moviesContent,genresList}) => {
-    console.log("넘어온 moviesContent",moviesContent)
-    console.log("넘어온 genresList",genresList?.genres)
+    console.log("넘어온 moviesContent",moviesContent);
+    console.log("넘어온 genresList",genresList?.genres);
+    const [popUpState,setPopUpState] = useState(false);
+    console.log(popUpState)
+    const popUpOpen = ()=>{  
+        popUpState === false ? setPopUpState(!popUpState) : setPopUpState(!popUpState);
+        
+    }
   return (
     <div className='viewContent'>
         <div className="contentImgBox">
             <img src={`https://www.themoviedb.org/t/p/w600_and_h900_bestv2/${moviesContent?.poster_path}`} alt="" />
-        </div>
-        
+        </div>        
         <div className="contentTextBox">
             <div className='contentInnerBox'>
                 <h2 className='contentText__Title'>{moviesContent?.title}</h2>
@@ -18,14 +24,9 @@ const SubViewInfo = ({moviesContent,genresList}) => {
                 <ul className='content--EtcBox'>
                     <li className='content__EtcItem'><FontAwesomeIcon icon={faUser} /> {moviesContent?.vote_average}</li>
                     <li className='content__EtcItem'><FontAwesomeIcon icon={faFire} /> {moviesContent?.popularity}</li>
-                    {
-                        moviesContent?.adult === false ? "" : <li className='content__underTxt'>Under 18</li>
-                    }
+                    { moviesContent?.adult === false ? "" : <li className='content__underTxt'>Under 18</li> }
                 </ul>
                 <ul className='content--GenresList'>
-                    {/* {
-                        genresList? <div>{genresList.genres[1].name }123123</div> : ""
-                    } */}
                     {moviesContent?.genres.map((item,i)=>{
                         return <div className='content--GenresItems' key={i}>{
                             genresList.genres.find((movieGenres) => movieGenres.id == item.id).name
@@ -45,8 +46,8 @@ const SubViewInfo = ({moviesContent,genresList}) => {
                 </ul>
             </div>
             <div className="contentInnerBox">
-                <p className='content__watchMovie'><FontAwesomeIcon icon={faFilm} />Watch Trailer</p>
-                <DetailYoutube/>
+                <p onClick={popUpOpen} className='content__watchMovie'><FontAwesomeIcon icon={faFilm} />Watch Trailer</p>
+                {popUpState === true ? <SubViewYoutube popUpState ={popUpState} setPopUpState={setPopUpState}/> : ""}
             </div>
         </div>
     </div>
