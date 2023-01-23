@@ -78,3 +78,19 @@ export const getYoutubeApi = selector({
     }
 });
 
+
+//페이지 유튜브 가져오기
+export const getDetailReviewApi = selector({
+    key : 'getDetailReviewApi',
+    default : {},
+    get : async({get})=>{
+        const currentUrl = get(currentId);
+        let reviewApi = await api.get(`/movie/${currentUrl}/reviews?api_key=${API_KEY}&language=en-US&page=1`)
+        try {
+            let reviewData = await reviewApi.data;
+            return {reviewData}
+        } catch (error) {
+            return console.log("파람스 확인 오류")
+        }
+    }
+});

@@ -7,10 +7,9 @@ const SubViewInfo = ({moviesContent,genresList}) => {
     console.log("넘어온 moviesContent",moviesContent);
     console.log("넘어온 genresList",genresList?.genres);
     const [popUpState,setPopUpState] = useState(false);
-    console.log(popUpState)
+
     const popUpOpen = ()=>{  
         popUpState === false ? setPopUpState(!popUpState) : setPopUpState(!popUpState);
-        
     }
   return (
     <div className='viewContent'>
