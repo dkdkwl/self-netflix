@@ -89,10 +89,27 @@ export const getDetailReviewApi = selector({
         try {
             let reviewData = await reviewApi.data;
             let reviewDataResults = await reviewApi.data.results;
-            console.log("reviewData리뷰데이터 넘기기전",reviewDataResults)
             return {reviewData,reviewDataResults}
         } catch (error) {
             return console.log("파람스 확인 오류")
         }
     }
 });
+
+
+//관련영화 가져오기
+export const getMovieSimilarApi = selector({
+    key : 'getMovieSimilarApi',
+    default : {},
+    get : async({get})=>{
+        const currentUrl = get(currentId);
+        let similarApi = await api.get(`/movie/${currentUrl}/similar?api_key=${API_KEY}&language=en-US&page=1`)
+        try {
+            let SimilarData = await similarApi.data;
+            return {SimilarData}
+        } catch (error) {
+            return console.log("파람스 확인 오류")
+        }
+    }
+});
+

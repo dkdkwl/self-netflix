@@ -40,7 +40,7 @@
 .reviewButton.btnReview{}
 .reviewButton.btnRelated{background-color: #fe4536;color: #fff;}
 
-.popupArea{position: fixed;display: flex;align-items:center;justify-content: center;background-color: rgba(0,0,0,3);z-index: 1;top: 0;left: 0;width: 100%;height: 100%;}
+.popupArea{position: fixed;display: flex;align-items:center;justify-content: center;background-color: rgba(0,0,0,0.7);z-index: 1;top: 0;left: 0;width: 100%;height: 100%;}
 
 .popupInner{width: 100%;max-width: 1024px;}
 .popupContent{position : relative;width:100%;height: 0;padding-bottom:56.25%;}
