@@ -28,7 +28,7 @@ const SubViewInfo = ({moviesContent,genresList}) => {
                 <ul className='content--GenresList'>
                     {moviesContent?.genres.map((item,i)=>{
                         return <div className='content--GenresItems' key={i}>{
-                            genresList.genres.find((movieGenres) => movieGenres.id == item.id).name
+                            genresList.genres.find((movieGenres) => movieGenres.id === item.id).name
                         }</div>
                     })}
                 </ul>

@@ -1,7 +1,7 @@
 .mainSlideInner{transition: all .3s ease-out; transform-origin: 50% 50%;}
 
 
-.mainVisual{position:relative;height: calc(100vh - 80px );display: flex;align-items: center;background-image: url('https://noona-netflix.netlify.app/big-banner.jpg');background-size: cover;background-repeat: no-repeat;background-position: center;max-height: 550px;margin: 0 0 70px 0;}
+.mainVisual{position:relative;height: calc(100vh - 80px );display: flex;align-items: center;background-size: cover;background-repeat: no-repeat;background-position: center;max-height: 550px;margin: 0 0 70px 0;}
 .mainVisual::before{content:"";z-index:0;position: absolute;left: 0;top: 0;width: 100%;height: 100%;background-image: linear-gradient(to left, rgba(0,0,0,0.3), rgba(0,0,0,1))}
 .mainVisual--textBox{position: relative;z-index: 0;}
 .mainVisual__title{font-size: 3.125rem;color: #fff;font-family: 'Hahmlet', serif;}
