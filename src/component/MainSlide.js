@@ -25,12 +25,12 @@ const MainSlide = ({movies,genresType}) => {
             return (
                 <SwiperSlide style={ item?.backdrop_path ? {backgroundImage : `url(`+url + item.backdrop_path+`)`} : null } key={i}>
                     <div className='mainSlideInner'>
-                        <Link to={'detail/' + item.id }>
+                        <Link to={'/detail/' + item.id }>
                             <div className='mainSLideView'>
                                 <strong className='mainSlide__title'>{item.title}</strong>
                                 <div className='mainSlide--genresBox'>
                                     {item.genre_ids.map((id,i)=>{
-                                        return <div className='mainSlide__genres' key={i}>{id}{genresList.find((item) => item.id === id).name}</div>
+                                        return <div className='mainSlide__genres' key={i}>{genresList.find((item) => item.id === id).name}</div>
                                     })}
                                 </div>
                                 <ul className='mainSlide--EtcBox'>

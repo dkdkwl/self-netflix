@@ -103,10 +103,12 @@ export const getMovieSimilarApi = selector({
     default : {},
     get : async({get})=>{
         const currentUrl = get(currentId);
-        let similarApi = await api.get(`/movie/${currentUrl}/similar?api_key=${API_KEY}&language=en-US&page=1`)
+        const similarApi = await api.get(`/movie/${currentUrl}/similar?api_key=${API_KEY}&language=en-US&page=1`)
+        const genreApi = await api.get(`/genre/movie/list?api_key=${API_KEY}&language=ko-KR`)
         try {
             let SimilarData = await similarApi.data;
-            return {SimilarData}
+            let genreMovies = genreApi.data;
+            return {SimilarData,genreMovies}
         } catch (error) {
             return console.log("파람스 확인 오류")
         }

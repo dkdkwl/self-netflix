@@ -9,10 +9,11 @@ import { useParams } from 'react-router-dom';
 const SubViewContent = () => {
   const {id} = useParams();
   const [renderView,setRenderView] = useRecoilState(currentId);
-  useEffect(()=>{
-    const obj = Object.values({id})
-    setRenderView(obj[0])
-  },[renderView]);
+
+  const obj = Object.values({id})
+  setRenderView(obj[0]);
+  console.log(renderView)
+
 
   const detailContent = useRecoilValueLoadable(moviesParms);
   const detailData = detailContent.contents.subViewData;
