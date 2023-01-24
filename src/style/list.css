@@ -1,0 +1,12 @@
+.movieItem{display: block;}
+.movieListArea{padding: 20px;box-sizing: border-box;}
+.movieItem--Inherader{display: flex;}
+.movieItem__headerImg{max-width: 50px;}
+.movieItem--innerHeader{padding: 0 0 0 15px;}
+.movieItem__title{font-size: 2rem;}
+.movieItem__year{font-size: 0.875em;color: #9ac7fa;}
+
+.movieItem--genreList{display: flex;align-items: center;flex-wrap: wrap;gap: 3px 7px;margin: 15px 0 0 0;}
+.movieItem__genreItems{text-align:center;font-weight:600;padding:3px 7px;font-size:0.675rem;background-color: #dc143c;color: #fff;border-radius: 6px;}
+
+.movieItem__txt{font-size: 1rem;}

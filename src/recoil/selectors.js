@@ -115,3 +115,21 @@ export const getMovieSimilarApi = selector({
     }
 });
 
+
+//list page 전체영화 가져오기
+export const getMovieListApi = selector({
+    key : 'getMovieListApi',
+    default : [],
+    get : async ({get})=>{
+        let movieListApi = await api.get(`/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate`)
+        try {
+            let movieListData = await movieListApi.data;
+            console.log("movieListData 데이터 넘기기전",movieListData);
+            return {movieListData}
+        } catch (error) {
+            return console.log("파람스 확인 오류")
+        }
+
+    }
+});
+
