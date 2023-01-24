@@ -7,10 +7,20 @@ const SubViewInfo = ({moviesContent,genresList}) => {
     console.log("넘어온 moviesContent",moviesContent);
     console.log("넘어온 genresList",genresList?.genres);
     const [popUpState,setPopUpState] = useState(false);
-
     const popUpOpen = ()=>{  
         popUpState === false ? setPopUpState(!popUpState) : setPopUpState(!popUpState);
     }
+
+    function toHoursAndMinutes(totalMinutes) {
+        const hours = Math.floor(totalMinutes / 60);
+        const minutes = totalMinutes % 60;
+        return `${padToTwoDigits(hours)}시간 ${padToTwoDigits(minutes)}분 `;
+      }
+      function padToTwoDigits(num) {
+        return num.toString().padStart(1, '0');
+      }
+
+      
   return (
     <div className='viewContent'>
         <div className="contentImgBox">
@@ -41,7 +51,7 @@ const SubViewInfo = ({moviesContent,genresList}) => {
                     {moviesContent?.budget === 0 ? "" : <li className='contentInfo__item'><b>Budget</b><span>${moviesContent?.budget.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</span></li>}
                     {moviesContent?.revenue === 0 ? "" : <li className='contentInfo__item'><b>Revenue</b><span>${moviesContent?.revenue.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',')}</span></li>}
                     <li className='contentInfo__item'><b>Release Day</b><span>{moviesContent?.release_date}</span></li>
-                    <li className='contentInfo__item'><b>Time</b><span>{moviesContent?.runtime}</span></li>
+                    <li className='contentInfo__item'><b>Time</b><span>{toHoursAndMinutes(moviesContent?.runtime)}</span></li>
                 </ul>
             </div>
             <div className="contentInnerBox">

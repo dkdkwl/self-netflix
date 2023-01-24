@@ -1,9 +1,24 @@
 import React from 'react'
+import { useState } from 'react'
 import { useRecoilValueLoadable } from 'recoil'
 import {getDetailReviewApi,getMovieSimilarApi} from '../recoil/selectors'
 import MainSlide from './MainSlide'
 
 const SubViewBottom = () => {
+  //리뷰 보기
+  const [reviewRead,setReviewRead] = useState(true);
+  //관련영화 보기
+  const [relatedRead,setRelatedRead] = useState(false);
+  const reviewShow = ()=>{
+    setReviewRead(true);
+    setRelatedRead(false);
+  }
+  const relatedShow = ()=>{
+    setReviewRead(false);
+    setRelatedRead(true);
+  }
+
+
   const detailReview = useRecoilValueLoadable(getDetailReviewApi);
   const detailSimilar = useRecoilValueLoadable(getMovieSimilarApi);
   console.log("detailSimilar genres",detailSimilar.contents.genreMovies?.genres);
@@ -11,10 +26,10 @@ const SubViewBottom = () => {
   return (
     <div className='viewBottom'>
       <div className='bottomBtnArea'>
-        <button className="reviewButton btnReview">REVIEWS ({detailReview.state === 'loading' ? "Loading..." : detailReview?.contents.reviewData.total_results })</button>
-        <button className="reviewButton btnRelated">RELATED MOVIES</button>
+        <button className="reviewButton btnReview" onClick={reviewShow}>REVIEWS ({detailReview.state === 'loading' ? "Loading..." : detailReview?.contents.reviewData.total_results })</button>
+        <button className="reviewButton btnRelated" onClick={relatedShow}>RELATED MOVIES</button>
       </div>
-      <div className="reviewArea">
+      <div className={`reviewArea ${reviewRead === true ? "open" : ""}`}>
         <ul className="reviewList">
         {
           detailReview.contents.reviewDataResults?.length === 0 ? <li className='review--items nodata'>리뷰 데이터가 없습니다</li> :
@@ -29,11 +44,10 @@ const SubViewBottom = () => {
         }
         </ul>
       </div>
-      <div>
-      {detailSimilar.state === 'loading' ? "Loading..." : <MainSlide genresType={detailSimilar.contents.genreMovies?.genres} movies={detailSimilar.contents.SimilarData?.results} ></MainSlide> }
+      <div className={`relatedArea ${relatedRead === true ? "open" : ""}`}>
+        {detailSimilar.state === 'loading' ? "Loading..." : <MainSlide genresType={detailSimilar.contents.genreMovies?.genres} movies={detailSimilar.contents.SimilarData?.results} ></MainSlide> }
       </div>
     </div>
-
   )
 }
 export default SubViewBottom
