@@ -3,7 +3,6 @@ import {getYoutubeApi} from '../recoil/selectors';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faXmark } from '@fortawesome/free-solid-svg-icons'
 import '../style/detail.css';
-import { useEffect } from 'react';
 
 const DetailYoutube = ({popUpState,setPopUpState}) => {
     let youtubeApi = useRecoilValueLoadable(getYoutubeApi);

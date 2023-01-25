@@ -1,12 +1,25 @@
 .movieItem{display: block;}
 .movieListArea{padding: 20px;box-sizing: border-box;}
-.movieItem--Inherader{display: flex;}
+.movieItem--InHeader{display: flex;align-items: flex-start;}
 .movieItem__headerImg{max-width: 50px;}
-.movieItem--innerHeader{padding: 0 0 0 15px;}
-.movieItem__title{font-size: 2rem;}
+.movieItem--innerHeader{padding: 0 0 0 15px;width: calc(100% - 50px);}
+.movieItem__title{font-size: 1.75rem;display: inline-block;width: 100%;max-width:100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
 .movieItem__year{font-size: 0.875em;color: #9ac7fa;}
 
-.movieItem--genreList{display: flex;align-items: center;flex-wrap: wrap;gap: 3px 7px;margin: 15px 0 0 0;}
+.movieItem--genreList{display: flex;align-items: center;flex-wrap: wrap;gap: 3px 7px;margin: 15px 0 15px 0;}
 .movieItem__genreItems{text-align:center;font-weight:600;padding:3px 7px;font-size:0.675rem;background-color: #dc143c;color: #fff;border-radius: 6px;}
 
-.movieItem__txt{font-size: 1rem;}
+.movieItem__txt{font-size: 1rem;font-family: 'Montserrat', sans-serif;margin: 0 0 0 0;color: #cfd6e1;line-height: 1.4;
+    
+    display: inline-block;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis; /* 여러 줄 자르기 추가 스타일 */white-space: normal;line-height: 1.5;height: 4.5em;text-align: left;word-wrap: break-word;display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;}
+
+.movieListArea{display: flex;flex-wrap: wrap;gap: 30px 10px;}
+.movieListArea--items{width: calc((100% - 20px)/3);background-size: cover;padding: 20px;position: relative;background-position: right center;background-repeat: no-repeat;}
+.movieListArea--items::before{content:"";display:block;position:absolute;left:0;top:0;width: 100%;height: 100%;background-image: linear-gradient(to left, rgba(0,0,0,0.5), rgba(0,0,0,1));}
+.movieListArea--items:hover::before{opacity: 1;}
+
+.movieList--InnerBox{z-index: 2;position: relative;}
+.movieItem--EtcBox{display: flex;margin: 10px 0 0 0;}
+.movieItem__EtcItem svg{margin: 0 5px 0 0;}
+.movieItem--EtcBox{gap: 20px;}
+

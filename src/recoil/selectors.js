@@ -1,5 +1,5 @@
 import { selector } from "recoil";
-import { currentId } from "./atom";
+import { currentId,pageState } from "./atom";
 import axios from "axios";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
@@ -121,11 +121,15 @@ export const getMovieListApi = selector({
     key : 'getMovieListApi',
     default : [],
     get : async ({get})=>{
-        let movieListApi = await api.get(`/discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_watch_monetization_types=flatrate`)
+        let currentPage = get(pageState);
+        console.log("페이징 재실행",currentPage);
+        let movieListApi = await api.get(`/discover/movie?api_key=${API_KEY}&language=ko-KR&sort_by=popularity.desc&include_adult=false&include_video=false&page=${currentPage}&with_watch_monetization_types=flatrate`)
+        let genreApi = await api.get(`/genre/movie/list?api_key=${API_KEY}&language=ko-KR`)
         try {
             let movieListData = await movieListApi.data;
-            console.log("movieListData 데이터 넘기기전",movieListData);
-            return {movieListData}
+            let genreMovies = genreApi.data;
+            console.log("movieListData 데이터 넘기기전",movieListData,genreMovies);
+            return {movieListData,genreMovies}
         } catch (error) {
             return console.log("파람스 확인 오류")
         }

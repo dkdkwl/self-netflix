@@ -2,7 +2,6 @@ import React from 'react'
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Scrollbar, A11y } from 'swiper';
 import "swiper/css/navigation";
-// import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import 'swiper/css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'

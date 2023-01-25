@@ -37,6 +37,7 @@
 
 .bottomBtnArea{display: flex;gap: 10px 30px;margin: 100px 0 80px 0;justify-content: center;}
 .reviewButton{color: #333;font-size: 14px;font-weight: 300;font-family: 'Montserrat', sans-serif;padding: 20px 40px;color: #747691;text-transform: uppercase;letter-spacing: 2px;line-height: 1;border: 2px solid #ecedff;background-color: #fff;border: none;}
+
 .reviewButton.btnReview{}
 .reviewButton.btnRelated{background-color: #fe4536;color: #fff;}
 
@@ -57,3 +58,6 @@
 
 .relatedArea {display: none;}
 .relatedArea.open {display: block;}
+
+
+
