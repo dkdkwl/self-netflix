@@ -15,6 +15,7 @@
     "install--save": "github:fortawesome/react-fontawesome",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-js-pagination": "^3.0.3",
     "react-router-dom": "^6.6.2",
     "react-scripts": "5.0.1",
     "recoil": "^0.7.6",
@@ -47,5 +48,4 @@
       "last 1 safari version"
     ]
   }
-  
 }

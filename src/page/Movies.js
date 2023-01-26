@@ -12,7 +12,7 @@ const Movies = () => {
   return (
     <div className='listContainer w1400'>
         <div className='listFilterArea'></div>
-        <MoviesList movies={movieData} genreList={listGenreList} moviesTotalPage={movieData?.total_pages}></MoviesList>
+        <MoviesList movies={movieData} genreList={listGenreList} moviesTotalItems={movieData?.total_results} moviesTotalPage={movieData?.total_pages}></MoviesList>
     </div>
   )
 }

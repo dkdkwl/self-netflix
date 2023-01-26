@@ -23,3 +23,6 @@
 .movieItem__EtcItem svg{margin: 0 5px 0 0;}
 .movieItem--EtcBox{gap: 20px;}
 
+.pagination{display: flex;align-items: center;gap: 10px 4px;justify-content: center;margin: 60px 0 0 0;}
+.pagination--items > a{padding: 7px;}
+.pagination--items.active > a{background-color: #dc143c;}

@@ -1,58 +1,32 @@
 import React from 'react'
+import Pagination from 'react-js-pagination';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser,faFire } from '@fortawesome/free-solid-svg-icons'
+import { pageState } from '../recoil/atom'
 import { useRecoilState } from 'recoil';
-import {pageState} from '../recoil/atom'
 import { useEffect } from 'react';
 
-const MoviesList = ({movies,genreList,moviesTotalPage}) => {
+
+const MoviesList = ({movies,genreList,moviesTotalPage,moviesTotalItems}) => {
+    const [page,setPage] = useRecoilState(pageState);
     console.log("movies",movies)
     console.log(moviesTotalPage)
-    let [currentPage,setCurrentPage] = useRecoilState(pageState);
-    const pageClick = (num)=>{
-        setCurrentPage(num)
-    }
+    console.log("moviesTotalItems",moviesTotalItems && moviesTotalItems)
+    const handlePageChange = (page) => { setPage(page); };
+    
+    useEffect(()=>{
 
-    // useEffect(()=>{
-    //     pagiNationRender();
-    // },[])
-    const pagiNationRender = ()=>{
-        let totalPageNum = moviesTotalPage;
-        let pageCount = 10;
-        let pageGroup = Math.ceil(currentPage / pageCount) // 보여줄 페이지 그룹
-        let lastNumber = pageGroup * pageCount // 5
-        if (lastNumber > totalPageNum) {
-          lastNumber = totalPageNum
-        }
-        let firstNumber = lastNumber - (pageCount - 1) // 1
-
-        // 1~5만큼 페이지네이션 그려줌
-        for (let i = firstNumber; i <= lastNumber; i++) {
-            return(`<button class="pageNumber" id="page_${i}">${i}</button>`)
-        }
-        
-    }
+    },[page])
 
   return (
     <div className='listBoxWrap'>
-        <div className="Pagination">
-            <div className="square-fill pagination">
-                <ul>
-                    {pagiNationRender()}
-                    <li>2</li>
-                    <li>3</li>
-                    <li>...</li>
-                    <li>70</li>
-                    <li>&gt;</li>
-                </ul>
-            </div>
-        </div>     
+
         <div className='movieListArea'>
             {
                 movies && movies.results.map((item,i)=>{
                     return(
-                        <Link /*to={`/detail/${item.id}`}*/ key={i} className='movieListArea--items'style={{backgroundImage : `url(https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces/${item?.backdrop_path})`}}>
+                        <Link to={`/detail/${item.id}`} key={i} className='movieListArea--items'style={{backgroundImage : `url(https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces/${item?.backdrop_path})`}}>
                             <div className='movieList--InnerBox'>
                                 <div className="movieItem--header">
                                     <div className='movieItem--InHeader'>
@@ -86,7 +60,24 @@ const MoviesList = ({movies,genreList,moviesTotalPage}) => {
                 })
             }
         </div>
-   
+        <Pagination
+        // 현제 보고있는 페이지 
+        activePage={page}
+        // 한페이지에 출력할 아이템수
+        itemsCountPerPage={10}
+        // 총 아이템수
+        totalItemsCount={1000}
+        // 표시할 페이지수
+        pageRangeDisplayed={10}
+        //클래스 이름
+        itemClass="pagination--items"
+        itemClassFirst="firstItem"
+        itemClassLast="lastItem"
+
+        // 함수
+        onChange={handlePageChange}
+        >
+        </Pagination>
     </div>
   )
 }
