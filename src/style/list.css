@@ -27,9 +27,12 @@
 .pagination--items > a{padding: 7px;}
 .pagination--items.active > a{background-color: #dc143c;}
 
-.listFilterArea{width: 100%;max-width: 400px;}
-.filterSort{display: block;border: 1px solid #fff;border-radius: 20px;}
-.filterSort--title{display: flex;align-items: center;border-bottom: 1px solid #fff;width: 100%;padding: 13px 20px;}
-.filterSort__name{margin: 0 20px 0 0;}
+.listFilterWrap{display: flex;}
+.filterSort{width: 100%;max-width: 400px;}
+.filterBox{display: block;border: 1px solid #fff;border-radius: 20px;}
+.filterBox--title{display: flex;align-items: center;border-bottom: 1px solid #fff;width: 100%;padding: 13px 20px;}
+.filterBox__name{margin: 0 20px 0 0;}
+
+
 .sortList{padding: 15px 20px;}
 .sortList--Items{padding: 3px 0;}
