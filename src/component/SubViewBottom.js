@@ -21,8 +21,8 @@ const SubViewBottom = () => {
 
   const detailReview = useRecoilValueLoadable(getDetailReviewApi);
   const detailSimilar = useRecoilValueLoadable(getMovieSimilarApi);
-  console.log("detailSimilar genres",detailSimilar.contents.genreMovies?.genres);
-  console.log("detailSimilar SimilarData",detailSimilar.contents.SimilarData?.results)
+  // console.log("detailSimilar genres",detailSimilar.contents.genreMovies?.genres);
+  // console.log("detailSimilar SimilarData",detailSimilar.contents.SimilarData?.results)
   return (
     <div className='viewBottom'>
       <div className='bottomBtnArea'>

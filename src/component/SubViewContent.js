@@ -12,7 +12,7 @@ const SubViewContent = () => {
   useEffect(()=>{
     const obj = Object.values({id})
     setRenderView(obj[0]);
-    console.log(renderView)
+    // console.log(renderView)
   },[id])
 
 

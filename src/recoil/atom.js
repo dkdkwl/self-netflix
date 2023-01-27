@@ -10,3 +10,11 @@ export const pageState = atom({
     default : "1",
 });
 
+export const filterState = atom({
+    key : 'filterState',
+    default : {
+        sort : "popularity.desc",
+        test : "몰라"
+    },
+});
+

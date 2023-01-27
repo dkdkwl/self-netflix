@@ -4,7 +4,7 @@ import { mainVisualTop } from '../recoil/selectors';
 const MainVisual = () => {
   const mainVisualData = useRecoilValueLoadable(mainVisualTop);
   const mainVisualOnePick = mainVisualData.contents.mainVisualPick;
-  console.log("mainVisualData",mainVisualOnePick);
+  // console.log("mainVisualData",mainVisualOnePick);
   return (
     <div className='mainVisual'
     style={ mainVisualOnePick?.backdrop_path ? {backgroundImage : `url(https://www.themoviedb.org/t/p/w1920_and_h800_multi_faces/${mainVisualOnePick?.backdrop_path})`} : null }>
