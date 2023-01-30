@@ -14,9 +14,16 @@ export const filterState = atom({
     key : 'filterState',
     default : {
         sort : "popularity.desc",
-        year : [1940,2023],
-        score : [0,8],
         genres : "",
     },
 });
 
+export const filterYearState = atom({
+    key : 'filterYearState',
+    default : [1940,2023]
+});
+
+export const filterScoreState = atom({
+    key : 'filterScoreState',
+    default : [0,8]
+});

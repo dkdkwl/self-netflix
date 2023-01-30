@@ -4,28 +4,14 @@ import { faArrowUp } from '@fortawesome/free-solid-svg-icons'
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import { useState } from 'react';
-import { filterState } from '../recoil/atom';
+import { filterState,filterYearState,filterScoreState } from '../recoil/atom';
 import { useRecoilState } from 'recoil';
 
 const ListFilterMore = ({genreList}) => {
   console.log(genreList)
   let [filterOption,setFilterOption] = useRecoilState(filterState);
-  console.log(filterOption)
-
-  const yearChange = (value)=>{
-    console.log("체인지 성공")
-    console.log("value",value)
-    setFilterOption((value) => ({
-      year: [1900,2000],
-     }));
-  }
-
-  const setScore = (value)=>{
-  setFilterOption((value) => ({
-    year: value,
-   }));
-  }
-
+  let [filterYear,setFilterYear] = useRecoilState(filterYearState);
+  let [filterScore,setFilterScore] = useRecoilState(filterScoreState);
 
   return (
     <div className="filterBox">
@@ -36,7 +22,7 @@ const ListFilterMore = ({genreList}) => {
         <div className="filterBox--Content">
           <div className="rageArea">
             <p className='rageTitle'>YEAR <b>Filter</b></p>
-            <p className='rageFrom'>From: <strong>{filterOption.year[0]}</strong> - To: <strong>{filterOption.year[1]}</strong></p>
+            <p className='rageFrom'>From: <strong>{filterYear[0]}</strong> - To: <strong>{filterYear[1]}</strong></p>
             <div className='rageSlideArea'>
               <Slider
                 range
@@ -44,26 +30,26 @@ const ListFilterMore = ({genreList}) => {
                 min={1940}
                 max={2023}
                 count={1}
-                defaultValue = {filterOption.year}
+                defaultValue = {filterYear}
                 allowCross = {false}
-                onChange={(value)=>{ yearChange(value) }}
+                onAfterChange={(value)=>{ setFilterYear(value);console.log(filterYear) }}
               />
             </div>
           </div>
           <div className="rageArea">
             <p className='rageTitle'>IBM <b>Score Filter</b></p>
-            <p className='rageFrom'>From: <strong>{filterOption.score[0]}</strong> - To: <strong>{filterOption.score[1]}</strong></p>
+            <p className='rageFrom'>From: <strong>{filterScore[0]}</strong> - To: <strong>{filterScore[1]}</strong></p>
             <div className='rageSlideArea'>
-              {/* <Slider
+              { <Slider
                 range
                 className = "rageSlide"
                 min={0}
                 max={8}
                 count={1}
-                defaultValue = {filterOption.score}
+                defaultValue = {filterScore}
                 allowCross = {false}
-                onChange={(value)=>{ setScore(value) }}
-              /> */}
+                onAfterChange={(value)=>{ setFilterScore(value) }}
+              /> }
             </div>
           </div>
           <div className="genresBox">
