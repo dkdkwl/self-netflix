@@ -14,7 +14,9 @@ export const filterState = atom({
     key : 'filterState',
     default : {
         sort : "popularity.desc",
-        test : "몰라"
+        year : [1940,2023],
+        score : [0,8],
+        genres : "",
     },
 });
 

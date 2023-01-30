@@ -13,6 +13,7 @@
     "axios": "^1.2.2",
     "gh-pages": "^5.0.0",
     "install--save": "github:fortawesome/react-fontawesome",
+    "rc-slider": "^10.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-js-pagination": "^3.0.3",
