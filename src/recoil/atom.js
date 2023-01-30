@@ -25,5 +25,10 @@ export const filterYearState = atom({
 
 export const filterScoreState = atom({
     key : 'filterScoreState',
-    default : [0,8]
+    default : [0,10]
+});
+
+export const filterIdState = atom({
+    key : 'filterIdState',
+    default : "0"
 });

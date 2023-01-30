@@ -1,5 +1,5 @@
 import { selector } from "recoil";
-import { currentId,pageState,filterState } from "./atom";
+import { currentId,pageState,filterState,filterYearState,filterScoreState,filterIdState } from "./atom";
 import axios from "axios";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
@@ -123,9 +123,12 @@ export const getMovieListApi = selector({
     get : async ({get})=>{
         let currentPage = get(pageState);
         let filterSort = get(filterState).sort;
+        let filterYear = get(filterYearState);
+        let filterAverage = get(filterScoreState);
+        let filterId = get(filterIdState);
         console.log("페이징 재실행",filterSort);
         console.log(`/discover/movie?api_key=${API_KEY}&language=ko-KR&sort_by=${filterSort}&include_adult=false&include_video=false&page=${currentPage}&with_watch_monetization_types=flatrate`)
-        let movieListApi = await api.get(`/discover/movie?api_key=${API_KEY}&language=ko-KR&sort_by=${filterSort}&include_adult=false&include_video=false&page=${currentPage}&with_watch_monetization_types=flatrate`)
+        let movieListApi = await api.get(`/discover/movie?api_key=${API_KEY}&language=ko-KR&sort_by=${filterSort}&include_adult=false&include_video=false&primary_release_date.gte=${filterYear[0]}&primary_release_date.lte=${filterYear[1]}&page=${currentPage}&vote_average.gte=${filterAverage[0]}&vote_average.lte=${filterAverage[1]}&with_genres=${filterId}&with_watch_monetization_types=flatrate`)
         let genreApi = await api.get(`/genre/movie/list?api_key=${API_KEY}&language=ko-KR`)
         try {
             let movieListData = await movieListApi.data;

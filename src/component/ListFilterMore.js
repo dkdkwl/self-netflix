@@ -3,15 +3,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons'
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
-import { useState } from 'react';
-import { filterState,filterYearState,filterScoreState } from '../recoil/atom';
+import { filterYearState,filterScoreState,filterIdState } from '../recoil/atom';
 import { useRecoilState } from 'recoil';
 
 const ListFilterMore = ({genreList}) => {
   console.log(genreList)
-  let [filterOption,setFilterOption] = useRecoilState(filterState);
   let [filterYear,setFilterYear] = useRecoilState(filterYearState);
   let [filterScore,setFilterScore] = useRecoilState(filterScoreState);
+  let [filterId,setFilterId] = useRecoilState(filterIdState);
 
   return (
     <div className="filterBox">
@@ -44,7 +43,7 @@ const ListFilterMore = ({genreList}) => {
                 range
                 className = "rageSlide"
                 min={0}
-                max={8}
+                max={10}
                 count={1}
                 defaultValue = {filterScore}
                 allowCross = {false}
@@ -58,7 +57,7 @@ const ListFilterMore = ({genreList}) => {
             {
               genreList && genreList.map((item,i)=>{
                 return(
-                  <li key={i} className='genreList--items'><button>{item.name}</button></li>
+                  <li key={i} className='genreList--items' onClick={()=>{setFilterId(item.id);console.log(filterId)}}><button>{item.name}</button></li>
                 )
               })
             }
