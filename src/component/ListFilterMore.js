@@ -5,17 +5,18 @@ import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import { filterYearState,filterScoreState,filterIdState } from '../recoil/atom';
 import { useRecoilState } from 'recoil';
+import { useState } from 'react';
 
 const ListFilterMore = ({genreList}) => {
-  console.log(genreList)
+  const [sortOpen,setSortOpen] = useState(false);
   let [filterYear,setFilterYear] = useRecoilState(filterYearState);
   let [filterScore,setFilterScore] = useRecoilState(filterScoreState);
   let [filterId,setFilterId] = useRecoilState(filterIdState);
 
   return (
-    <div className="filterBox">
-        <button className="filterBox--title">
-            <h4 className='filterBox__name'>Sort <strong>필터모어</strong></h4>
+    <div className={`filterBox ${sortOpen === true ? "open" : ""}`}>
+        <button className='filterBox--title'  onClick={()=>{setSortOpen(!sortOpen);console.log(sortOpen)}}>
+            <h4 className='filterBox__name'><strong>Filter</strong></h4>
             <FontAwesomeIcon icon={faArrowUp} />
         </button>
         <div className="filterBox--Content">

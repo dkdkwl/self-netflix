@@ -30,5 +30,5 @@ export const filterScoreState = atom({
 
 export const filterIdState = atom({
     key : 'filterIdState',
-    default : "0"
+    default : 0
 });

@@ -2,10 +2,12 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons'
 import {filterState} from '../recoil/atom'
-import { useRecoilState, useRecoilValue } from 'recoil'
+import { useRecoilState } from 'recoil'
+import { useState } from 'react'
 
 const ListFilter = () => {
     let [filterSort,setFilterSort] = useRecoilState(filterState);
+    const [sortOpen,setSortOpen] = useState(false);
     const sortClick = (sortValue)=>{
         console.log(sortValue)
         setFilterSort(() => ({
@@ -13,15 +15,14 @@ const ListFilter = () => {
          }));
     }
   return (
-    <div className="filterBox">
-        <button className="filterBox--title">
+    <div className={`filterBox ${sortOpen === true ? "open" : ""} `}>
+        <button className='filterBox--title'  onClick={()=>{setSortOpen(!sortOpen);console.log(sortOpen)}}>
             <h4 className='filterBox__name'>Sort <strong>{filterSort.sort}</strong></h4>
             <FontAwesomeIcon icon={faArrowUp} />
         </button>
         <div className="filterBox--Content">
             <p className="sortResults"></p>
             <ul className='sortList'>
-                <li className='sortList--Items' onClick={()=>{sortClick("popularity.asc")}}>popularity.asc</li>
                 <li className='sortList--Items' onClick={()=>{sortClick("popularity.desc")}}>popularity.desc</li>
                 <li className='sortList--Items' onClick={()=>{sortClick("release_date.asc")}}>release_date.asc</li>
                 <li className='sortList--Items' onClick={()=>{sortClick("release_date.desc")}}>release_date.desc</li>
