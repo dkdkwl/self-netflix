@@ -9,9 +9,10 @@ import { useEffect } from 'react';
 const MoviesList = ({movies,genreList,moviesTotalPage,moviesTotalItems}) => {
     const [page,setPage] = useRecoilState(pageState);
     // console.log("page",page)
-    // console.log("movies",movies)
-    // console.log(moviesTotalPage)
-    // console.log("moviesTotalItems",moviesTotalItems && moviesTotalItems)
+    console.log("movies",movies)
+    console.log(moviesTotalPage)
+    console.log("moviesTotalItems",moviesTotalItems && moviesTotalItems)
+    console.log("moviesTotalPage",moviesTotalPage && moviesTotalPage)
     const handlePageChange = (page) => {
         setPage(page);
     };
@@ -30,12 +31,16 @@ const MoviesList = ({movies,genreList,moviesTotalPage,moviesTotalItems}) => {
         <Pagination
         // 현제 보고있는 페이지 
         activePage={page}
-        // 한페이지에 출력할 아이템수
-        itemsCountPerPage={10}
-        // 총 아이템수
-        totalItemsCount={1000}
-        // 표시할 페이지수
+
+        // 한 페이지당 보여줄 리스트 아이템의 개수
+        itemsCountPerPage={1}
+
+        // 총 아이템의 개수
+        totalItemsCount={moviesTotalPage > 100 ? 100 : moviesTotalPage}
+
+        // 내에서 보여줄 페이지의 범위
         pageRangeDisplayed={10}
+
         //클래스 이름
         itemClass="pagination--items"
         itemClassFirst="firstItem"

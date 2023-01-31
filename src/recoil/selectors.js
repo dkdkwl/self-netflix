@@ -1,5 +1,5 @@
 import { selector } from "recoil";
-import { currentId,pageState,filterState,filterYearState,filterScoreState,filterIdState } from "./atom";
+import { currentId,pageState,filterState,filterYearState,filterScoreState,filterIdState,searchQueryTxt } from "./atom";
 import axios from "axios";
 
 const API_KEY = process.env.REACT_APP_API_KEY;
@@ -145,7 +145,26 @@ export const getMovieListApi = selector({
         } catch (error) {
             return console.log("파람스 확인 오류")
         }
-
     }
 });
 
+//Search page 전체영화 가져오기
+export const getMovieSearchListApi = selector({
+    key : 'getMovieSearchListApi',
+    default : [],
+    get : async ({get})=>{
+        let currentPage = get(pageState);
+        let queryTxt = get(searchQueryTxt);
+        let getMovieSearchList = await api.get(`/search/movie?api_key=${API_KEY}&query=${queryTxt}&page=${currentPage}`);
+        let genreApi = await api.get(`/genre/movie/list?api_key=${API_KEY}&language=ko-KR`)
+        // console.log(queryTxt)
+        try {
+            let getMovieData = await getMovieSearchList.data;
+            let genreMovies = genreApi.data;
+            // console.log(getMovieData);
+            return {getMovieData,genreMovies}
+        } catch (error) {
+            return console.log("파람스 확인 오류")
+        }
+    }
+});

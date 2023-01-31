@@ -14,6 +14,8 @@ const ListFilter = () => {
             sort: sortValue,
          }));
     }
+    
+    
   return (
     <div className={`filterBox ${sortOpen === true ? "open" : ""} `}>
         <button className='filterBox--title'  onClick={()=>{setSortOpen(!sortOpen);console.log(sortOpen)}}>

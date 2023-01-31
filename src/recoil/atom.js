@@ -7,7 +7,7 @@ export const currentId = atom({
 
 export const pageState = atom({
     key : 'pageState',
-    default : "1",
+    default : 1,
 });
 
 export const filterState = atom({
@@ -31,4 +31,9 @@ export const filterScoreState = atom({
 export const filterIdState = atom({
     key : 'filterIdState',
     default : 0
+});
+
+export const searchQueryTxt = atom({
+    key : 'searchQueryTxt',
+    default : "슈퍼맨",
 });

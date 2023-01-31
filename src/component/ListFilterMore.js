@@ -3,16 +3,22 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowUp } from '@fortawesome/free-solid-svg-icons'
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
-import { filterYearState,filterScoreState,filterIdState } from '../recoil/atom';
+import { filterYearState,filterScoreState,filterIdState,pageState } from '../recoil/atom';
 import { useRecoilState } from 'recoil';
 import { useState } from 'react';
+import { useEffect } from 'react';
 
 const ListFilterMore = ({genreList}) => {
   const [sortOpen,setSortOpen] = useState(false);
   let [filterYear,setFilterYear] = useRecoilState(filterYearState);
   let [filterScore,setFilterScore] = useRecoilState(filterScoreState);
   let [filterId,setFilterId] = useRecoilState(filterIdState);
-
+  let [pageNumber,setPageNumber] = useRecoilState(pageState);
+  
+  useEffect(()=>{
+    setPageNumber(1);
+  },[filterYear,filterScore,filterId])
+  
   return (
     <div className={`filterBox ${sortOpen === true ? "open" : ""}`}>
         <button className='filterBox--title'  onClick={()=>{setSortOpen(!sortOpen);console.log(sortOpen)}}>
