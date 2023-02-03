@@ -17,7 +17,12 @@ const MainSlide = ({movies,genresType}) => {
   return (
     <Swiper className='mainSlideArea'
         modules={[Navigation, Scrollbar, A11y]}
-        slidesPerView={4}
+        slidesPerView={1}
+        breakpoints={{
+            640:{slidesPerView:1},
+            768:{slidesPerView:2},
+            1024:{slidesPerView:4}
+          }}
         navigation
         scrollbar={{ draggable: true }}>
         {popularList.map((item,i) => {

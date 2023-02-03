@@ -1,5 +1,13 @@
 .header{background-color: #000;height: 80px;}
 .header .logo{max-width: 90px;width: 100%;}
 .headerInner{display: flex;align-items: center;justify-content: space-between;}
+
 .gnb{margin: 0 0 0 20px;flex:auto}
 .gnb .d1{color: #fff;font-size: 1rem;margin: 0 0 0 40px;font-weight: 400;}
+
+.searchBarButton{font-size: 1.5rem;}
+
+/* 태블릿대응 */
+@media (max-width: 1024px) {
+
+  }

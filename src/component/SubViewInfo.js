@@ -4,8 +4,8 @@ import SubViewYoutube from './SubViewYoutube'
 import { useState } from 'react';
 
 const SubViewInfo = ({moviesContent,genresList}) => {
-    console.log("넘어온 moviesContent",moviesContent);
-    console.log("넘어온 genresList",genresList?.genres);
+    // console.log("넘어온 moviesContent",moviesContent);
+    // console.log("넘어온 genresList",genresList?.genres);
     const [popUpState,setPopUpState] = useState(false);
     const popUpOpen = ()=>{  
         popUpState === false ? setPopUpState(!popUpState) : setPopUpState(!popUpState);

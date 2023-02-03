@@ -9,10 +9,7 @@ import { useEffect } from 'react';
 const MoviesList = ({movies,genreList,moviesTotalPage,moviesTotalItems}) => {
     const [page,setPage] = useRecoilState(pageState);
     // console.log("page",page)
-    console.log("movies",movies)
-    console.log(moviesTotalPage)
-    console.log("moviesTotalItems",moviesTotalItems && moviesTotalItems)
-    console.log("moviesTotalPage",moviesTotalPage && moviesTotalPage)
+    // console.log("movies",movies)
     const handlePageChange = (page) => {
         setPage(page);
     };

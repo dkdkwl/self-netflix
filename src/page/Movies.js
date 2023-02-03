@@ -8,7 +8,6 @@ import '../style/list.css'
 const Movies = () => {
     const movieData = useRecoilValueLoadable(getMovieListApi).contents.movieListData;
     const listGenreList = useRecoilValueLoadable(getMovieListApi).contents.genreMovies?.genres;
-    console.log("listGenreList",listGenreList);    
     
   return (
     <div className='listContainer w1400'>

@@ -9,7 +9,6 @@ const ListFilter = () => {
     let [filterSort,setFilterSort] = useRecoilState(filterState);
     const [sortOpen,setSortOpen] = useState(false);
     const sortClick = (sortValue)=>{
-        console.log(sortValue)
         setFilterSort(() => ({
             sort: sortValue,
          }));

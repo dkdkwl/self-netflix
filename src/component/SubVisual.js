@@ -5,7 +5,7 @@ import { moviesParms } from '../recoil/selectors';
 
 const SubVisual = () => {
   const detailMovieContent = useRecoilValueLoadable(moviesParms);
-  console.log("detailMovieContent",detailMovieContent)
+  // console.log("detailMovieContent",detailMovieContent)
   return (
     <div className='subVisual' style={{backgroundImage : `url(https://images.hdqwalls.com/download/polygonal-abstract-red-dark-background-eo-1280x1024.jpg)`}}>
         <div className='subVisual--Inner'>

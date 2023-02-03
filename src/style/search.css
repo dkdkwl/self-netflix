@@ -1,4 +1,5 @@
 
-.searchForm{border-radius: 5px;overflow: hidden;display: flex;}
+.searchBarArea.active .searchForm{display: flex;}
+.searchForm{border-radius: 5px;overflow: hidden;display: none;}
 .searchInput{padding: 5px 10px;margin: 0;line-height: 0;font-size: 1rem;color: #000;}
 .searchButton{padding: 5px 10px;background-color:#dc143c}

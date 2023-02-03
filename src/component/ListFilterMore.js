@@ -18,10 +18,10 @@ const ListFilterMore = ({genreList}) => {
   useEffect(()=>{
     setPageNumber(1);
   },[filterYear,filterScore,filterId])
-  
+
   return (
     <div className={`filterBox ${sortOpen === true ? "open" : ""}`}>
-        <button className='filterBox--title'  onClick={()=>{setSortOpen(!sortOpen);console.log(sortOpen)}}>
+        <button className='filterBox--title'  onClick={()=>{setSortOpen(!sortOpen);}}>
             <h4 className='filterBox__name'><strong>Filter</strong></h4>
             <FontAwesomeIcon icon={faArrowUp} />
         </button>

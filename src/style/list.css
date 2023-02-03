@@ -12,12 +12,12 @@
 .movieItem__txt{font-size: 1rem;font-family: 'Montserrat', sans-serif;margin: 0 0 0 0;color: #cfd6e1;line-height: 1.4;
     display: inline-block;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis; /* 여러 줄 자르기 추가 스타일 */white-space: normal;line-height: 1.5;height: 4.5em;text-align: left;word-wrap: break-word;display: -webkit-box;-webkit-line-clamp: 3;-webkit-box-orient: vertical;}
 
-.movieListArea{display: flex;flex-wrap: wrap;gap: 30px 10px;padding: 80px 20px 20px;box-sizing: border-box;margin: 40px 0 0 0;}
-.movieListArea--items{width: calc((100% - 20px)/3);background-size: cover;padding: 20px;position: relative;background-position: right center;background-repeat: no-repeat;}
+.movieListArea{display: flex;flex-wrap: wrap;gap: 30px 10px;padding: 80px 00px 20px;box-sizing: border-box;margin: 40px 0 0 0;}
+.movieListArea--items{width: calc((100% - 20px)/3);background-size: cover;position: relative;background-position: right center;background-repeat: no-repeat;}
 .movieListArea--items::before{content:"";display:block;position:absolute;left:0;top:0;width: 100%;height: 100%;background-image: linear-gradient(to left, rgba(0,0,0,0.5), rgba(0,0,0,1));}
 .movieListArea--items:hover::before{opacity: 1;}
 
-.movieList--InnerBox{z-index: 2;position: relative;}
+.movieList--InnerBox{z-index: 2;position: relative;padding: 20px;}
 .movieItem--EtcBox{display: flex;margin: 10px 0 0 0;}
 .movieItem__EtcItem svg{margin: 0 5px 0 0;}
 .movieItem--EtcBox{gap: 20px;}
@@ -29,9 +29,9 @@
 .listFilterWrap{display: flex;align-items: flex-start;position: absolute;z-index: 5;}
 .filterSort{}
 .filterBox{display: block;border: 1px solid #fff;border-radius: 20px;width:300px;background-color: #000;}
+.filterBox + .filterBox{margin: 0 0 0 20px;}
 .filterBox--title{display: flex;align-items: center;width: 100%;padding: 13px 20px;}
 .filterBox__name{margin: 0 20px 0 0;}
-
 
 .sortList{}
 .sortList--Items{padding: 3px 0;cursor: pointer;}
@@ -42,6 +42,7 @@
 .rc-slider-track{background-color: #dc143c;}
 .rc-slider-handle{background-color: #dc143c;border: 2px solid #bb4960;}
 .rc-slider-handle:active{border-color: #dc143c;box-shadow: none;}
+
 .rageSlideArea{max-width: 200px;width: 100%;margin: 0 auto 20px;}
 .rageTitle{font-size: 1.25rem;text-align: center;font-weight: 300;margin: 0px 0 10px 0;}
 .rageTitle b{font-weight: 600;}

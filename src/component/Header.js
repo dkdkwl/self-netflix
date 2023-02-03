@@ -5,9 +5,13 @@ import { Link, useNavigate } from 'react-router-dom'
 import { searchQueryTxt } from '../recoil/atom'
 import { useRecoilState } from 'recoil';
 import { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBars } from '@fortawesome/free-solid-svg-icons'
+import { Mobile } from '../mediaQuery/mediaQuery';
 
 
 const Header = () => {
+  let [searchBarState,setSearchBarState] = useState(false);
   let [searchQuery,setSearchQuery] = useRecoilState(searchQueryTxt);
   let [searchInputTxt,setSearchInputTxt] = useState("");
   const navigate = useNavigate();
@@ -31,7 +35,6 @@ const Header = () => {
     }
   }
 
-
   return (
     <div className='header'>
         <div className='headerInner w1400'>
@@ -41,7 +44,10 @@ const Header = () => {
                 <Link className='d1' to='/movies'>Movies</Link>
                 <Link className='d1' to='/favorite'>My Favorite</Link>
             </div>
-            <div className="searchBarArea">
+            <div className={searchBarState === true ? "searchBarArea active" : "searchBarArea"}>
+            <Mobile>
+              <button className='searchBarButton' onClick={()=>{setSearchBarState(!searchBarState)}}><FontAwesomeIcon icon={faBars} /></button>
+            </Mobile>
               <form className='searchForm' onSubmit={submit} >
                 <input className='searchInput' placeholder='검색어를 입력해주세요' type="text" onKeyUp={onKeyUp} />
                 <button className='searchButton' onClick={searchButton}>검색</button>

@@ -126,15 +126,14 @@ export const getMovieListApi = selector({
         let filterYear = get(filterYearState);
         let filterAverage = get(filterScoreState);
         let filterId = get(filterIdState);
-        console.log(filterId)
         if(filterId === 0){
             filterId = ``
         }else{
             filterId = `&with_genres=${filterId}`
         }
-        console.log("filterId",filterId)
-        console.log("페이징 재실행",filterSort);
-        console.log(`language=ko-KR&sort_by=${filterSort}&include_adult=false&include_video=false&page=${currentPage}&with_watch_monetization_types=flatrate`)
+        // console.log("filterId",filterId)
+        // console.log("페이징 재실행",filterSort);
+        // console.log(`language=ko-KR&sort_by=${filterSort}&include_adult=false&include_video=false&page=${currentPage}&with_watch_monetization_types=flatrate`)
         let movieListApi = await api.get(`/discover/movie?api_key=${API_KEY}&language=ko-KR&sort_by=${filterSort}&include_adult=false&include_video=false&primary_release_date.gte=${filterYear[0]}&primary_release_date.lte=${filterYear[1]}&page=${currentPage}&vote_average.gte=${filterAverage[0]}&vote_average.lte=${filterAverage[1]}${filterId}&with_watch_monetization_types=flatrate`)
         let genreApi = await api.get(`/genre/movie/list?api_key=${API_KEY}&language=ko-KR`)
         try {
@@ -157,11 +156,9 @@ export const getMovieSearchListApi = selector({
         let queryTxt = get(searchQueryTxt);
         let getMovieSearchList = await api.get(`/search/movie?api_key=${API_KEY}&query=${queryTxt}&page=${currentPage}`);
         let genreApi = await api.get(`/genre/movie/list?api_key=${API_KEY}&language=ko-KR`)
-        // console.log(queryTxt)
         try {
             let getMovieData = await getMovieSearchList.data;
             let genreMovies = genreApi.data;
-            // console.log(getMovieData);
             return {getMovieData,genreMovies}
         } catch (error) {
             return console.log("파람스 확인 오류")
