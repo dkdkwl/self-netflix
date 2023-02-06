@@ -38,4 +38,6 @@
 /* 태블릿대응 */
 @media (max-width: 1024px) {
     .mainVisual{max-height: 400px;}
+    .mainSlideInner{opacity: 1;}
+
 }

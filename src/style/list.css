@@ -50,3 +50,20 @@
 
 .genreList{display: flex;align-items: center;flex-wrap: wrap;gap: 5px ;}
 .genreList--items button{background-color: #dc143c;display: inline-block;border-radius: 20px;padding: 5px 10px;font-weight: 400;font-size: 0.975rem;}
+
+
+/* 태블릿대응 */
+@media (max-width: 1024px) {
+    .movieListArea--items{width: calc((100% - 20px)/2);}
+}
+
+@media (max-width: 768px) {
+    .listFilterWrap{flex-direction: column;width: calc(100% - 20px);}
+    .filterBox{width: 100%;}
+    .filterBox + .filterBox{margin: 12px 0 0 0;}
+    .movieListArea{margin: 20px 0 0 0;padding: 130px 0 20px;}
+}
+/* 태블릿대응 */
+@media (max-width: 600px) {
+    .movieListArea--items{width: calc((100%));}
+}

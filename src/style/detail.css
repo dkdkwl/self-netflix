@@ -1,5 +1,5 @@
 /* subPage */
-.subVisual{height: 400px;background-size: cover;background-repeat: no-repeat;background-position: center;display: flex;align-items: center;justify-content: center;}
+.subVisual{height: 38.388vw;background-size: cover;background-repeat: no-repeat;background-position: center;display: flex;align-items: center;justify-content: center;}
 .subVisual--Inner{display: flex;flex-direction: column;align-items: center;}
 .subVisual__title{font-size: 3.5rem;color: #fff;font-family: "Noto Sans",sans-serif;font-weight: 300;letter-spacing: 0.1em;}
 .subVisual--EtcBox{max-width: max-content;display:flex;align-items: center;padding: 15px 30px;background-color: #fff;justify-content: center;gap: 10px 20px;margin: 20px 0 0 0;}
@@ -10,8 +10,8 @@
 
 /* subPage -- viewPage */
 .viewContent{display: flex;padding-top: 100px;}
-.contentImgBox{max-width: 540px;width: 100%;}
-.contentTextBox{max-width: calc(100% - 540px);width: 100%;padding: 0 0 0 30px;}
+.contentImgBox{width: 100%;max-width: calc(100% - 750px);}
+.contentTextBox{max-width: 750px;width: 100%;padding: 0 0 0 30px;}
 .contentInnerBox{padding: 30px 0 30px 0;border-bottom: 1px solid #fff;}
 
 .contentText__Title{font-size: 3rem;color: #fff;font-weight: 400;font-family: 'Montserrat', sans-serif;margin: 0 0 15px 0;    font-family: 'Hahmlet', serif;}
@@ -60,4 +60,32 @@
 .relatedArea.open {display: block;}
 
 
+/* 태블릿대응 */
+@media (max-width: 1024px) {
+    .subVisual{}
 
+    /* subPage -- viewPage */
+    .viewContent{flex-direction: column;}
+    .contentImgBox{max-width: none;text-align: center;}
+    .contentTextBox{max-width: none;padding: 20px 0 0 0;}
+}
+
+@media (max-width: 768px) {
+    .contentText__Title{font-size: 2.5rem;}
+    .bottomBtnArea{margin: 60px 0 60px 0;}
+    .reviewButton{padding: 15px 25px;}
+    .viewContent{padding-top: 40px;}
+    .content__watchMovie{font-size: 1.25rem;}
+    .content__watchMovie svg{}
+
+}
+
+@media (max-width: 480px) {
+    .subVisual__title{font-size: 2.5rem;}
+    .contentText__Title{font-size: 2rem;}
+    .contentText__Txt{margin: 0 0 10px 0;}
+    .subVisual--EtcBox{}
+    .bottomBtnArea{flex-direction: column;}
+    .contentImgBox{max-width: 80%;margin: 0 auto;}
+    .contentInnerBox{padding: 10px 0 15px 0;}
+}
